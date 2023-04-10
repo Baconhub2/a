@@ -1,0 +1,12 @@
+local NewObject
+    NewObject = workspace.CurrentRooms.ChildAdded:Connect(function(SeekRoom) -- new child checker
+        local WaitForSeekCollision = SeekRoom:WaitForChild("TriggerEventCollision", 2) -- seek collision
+
+        if WaitForSeekCollision then --checking if seek collision exists
+            WaitForSeekCollision:Destroy()
+        end
+    end)
+
+    repeat task.wait() until not _G.SeekBypass
+        NewObject:Disconnect()
+    end
